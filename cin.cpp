@@ -6,6 +6,6 @@ int main()
 {
     string userInput;
     cin >> userInput;
-    cout << "User input: " + userInput + "\n";
+    cout << "User input: " << userInput + "\n";
     return 0;
 }
