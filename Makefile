@@ -1,4 +1,5 @@
 TESTS = unittest
+CC = g++
 
 all : $(TESTS)
 
