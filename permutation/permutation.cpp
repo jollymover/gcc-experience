@@ -8,7 +8,7 @@ int main() {
     string word2 = "wrodl";
 
     cout << "Word " + word1;
-    if (checkPerm(word1, word2, 26))
+    if (checkPerm(word1, word2))
         cout << " is";
     else
         cout << " is not";

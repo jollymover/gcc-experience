@@ -3,8 +3,18 @@
 #include "permutation.h"
 using namespace std;
 
-bool checkPerm (string word1, string word2, int charset_length) {
-    int chars[charset_length] = {};
+bool checkPerm (string word1, string word2) {
+
+    string words = word1 + word2;
+
+    int charsetLength = 0;
+    for (int index1 = 0; index1 < words.length(); index1++) {
+        if (words[index1] > charsetLength) {
+            charsetLength = words[index1];
+        }
+    }
+
+    int chars[charsetLength] = {};
 
     if (word1.length() != word2.length())
         return false;
@@ -19,7 +29,7 @@ bool checkPerm (string word1, string word2, int charset_length) {
         chars[index2]--;
     }
 
-    for (int index1 = 0; index1 < charset_length; index1++) {
+    for (int index1 = 0; index1 < charsetLength; index1++) {
         if (chars[index1] > 0)
             return false;
     }
