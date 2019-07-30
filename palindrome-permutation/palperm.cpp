@@ -4,8 +4,8 @@
 using namespace std;
 
 string palPerm(string str) {
-    const int charsetLength = 26;
-    int chars[charsetLength] = {};
+    // const int charsetLength = 26;
+    int chars[CHARSET_LENGTH] = {};
     string result = "";
 
     if (str.length() < 2) {
@@ -24,7 +24,7 @@ string palPerm(string str) {
     }
 
     bool flag = false;
-    for (int index = 0; index < charsetLength; index++) {
+    for (int index = 0; index < CHARSET_LENGTH; index++) {
         if (chars[index] % 2 == 1) {
             if (flag) {
                 return "";
@@ -33,29 +33,5 @@ string palPerm(string str) {
             }
         }
     }
-
-    char middleChar = '\0';
-    for (int index = 0; index < charsetLength; index++) {
-        if (chars[index] == 2) {
-            char letter = index + 'a';
-            result += letter;
-        }
-
-        if (chars[index] == 1) {
-            middleChar = index + 'a';
-        }
-    }
-
-    if (middleChar != '\0') {
-        result += middleChar;
-    }
-
-    string result2;
-    for (int index = result.length() - 1; index >= 0; index--) {
-        if (result[index] == middleChar)
-            continue;
-        result2 += result[index];
-    }
-
-    return result + result2;
+    return genPalPerm(chars);
 }
